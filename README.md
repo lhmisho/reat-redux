@@ -64,10 +64,12 @@ export default rootReducer
 # Step-2: Create a store with help of reducer
 now create the store -- which is index.js
 ```js
-import { createStore } from 'redux'
+import { createStore, compose } from 'redux'
 import rootReducer from './reducers/rootReducer'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, compose(
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+))
 
 export default store
 ```
